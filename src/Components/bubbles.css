@@ -1,0 +1,86 @@
+.bubbles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.bubble {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0;
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+@keyframes float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  25% {
+    opacity: 0.7;
+    transform: translate(var(--x, 20px), var(--y, -20px)) scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(var(--x, -20px), var(--y, 20px)) scale(1.2);
+  }
+  75% {
+    opacity: 0.7;
+    transform: translate(var(--x, 20px), var(--y, 20px)) scale(1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translate(var(--x, -20px), var(--y, -20px)) scale(1.1);
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .bubbles-container {
+    position: fixed;
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .bubble {
+    position: fixed;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+  }
+}
+
+/* iPhone specific optimizations */
+@supports (-webkit-touch-callout: none) {
+  .bubbles-container {
+    height: -webkit-fill-available;
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+/* Prevent scrolling on the body when bubbles are present */
+body {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+/* Dark mode support */

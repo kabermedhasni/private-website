@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: #00b5de;
+}
+
+input {
+  transition: all 0.3s ease;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Main container */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Left side - Login Form */
+.login-form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-form-content {
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-header {
+  margin-top: 1rem;
+}
+
+.login-header h1 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+form {
+  margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+input[type="email"] {
+  width: 100%;
+  line-height: 1.5;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  outline: none;
+}
+
+input[type="email"]:focus {
+  border-color: #00b5de;
+  box-shadow: 0 0 0 1px #00b5de;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.remember-me input[type="checkbox"] {
+  margin-right: 0.5rem;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.remember-me input[type="checkbox"]:checked {
+  background-color: #00b5de;
+  border-color: #00b5de;
+  transform: scale(1.1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' stroke-width='2'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px;
+}
+
+.forgot-password {
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sign-in-button {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background-color: #00b5de;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.sign-in-button:active {
+  transform: scale(0.98);
+}
+
+.contact-number {
+  color: #00b5de;
+}
+
+.privacy label {
+  color: #ccc;
+  font-size: 11px;
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+.error-message {
+  position: relative;
+  bottom: 10px;
+  color: red;
+  font-size: 11px;
+}
+/* Right side - Welcome Section */
+.welcome-container {
+  display: none;
+  width: 50%;
+  background-color: #00b5de;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.welcome-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.welcome-header p {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 28rem;
+}
+
+/* Responsive styles */
+
+/* Desktop and Tablet (768px and above)
+  - Shows the welcome section
+  - Two-column layout
+  - Full hover effects
+  - Standard padding and positioning
+*/
+@media (min-width: 768px) {
+  .login-form-container {
+    width: 50%;
+    position: relative;
+    height: auto;
+    overflow: visible;
+    padding: 2rem;
+  }
+
+  .welcome-container {
+    display: block;
+  }
+
+  .forgot-password:hover {
+    color: #007f9b;
+  }
+
+  .sign-in-button:hover {
+    background-color: #007f9b;
+  }
+}
+
+/* Mobile Devices (767px and below)
+  - Single column layout
+  - Welcome section hidden
+  - Optimized for mobile keyboard
+  - Fixed positioning to prevent scrolling
+  - Form stays in top half of screen
+*/
+@media (max-width: 767px) {
+  .login-form-container {
+    padding: 2rem 1.5rem;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
+
+  .login-header {
+    margin-top: 0;
+  }
+
+  /* Ensure the form stays in the top half */
+  form {
+    margin-top: 1rem;
+  }
+
+  /* Adjust input positioning */
+  input[type="email"],
+  input[type="password"] {
+    position: relative;
+    z-index: 1;
+  }
+
+  .forgot-password {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sign-in-button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
