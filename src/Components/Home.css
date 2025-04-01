@@ -56,3 +56,12 @@
   color: #111827;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 767px) {
+  .home-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+}
+

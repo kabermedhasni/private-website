@@ -1,0 +1,551 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Legal page container */
+.legal-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  animation: fadeInFromTop 0.5s ease-out;
+}
+
+@keyframes fadeInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+  .legal-page-container {
+    flex-direction: row;
+  }
+}
+
+/* Sidebar styles */
+.legal-page-sidebar {
+  width: 100%;
+  height: auto;
+  max-height: 25vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0.75rem 2.5rem 0.75rem; /* Added bottom padding for back link */
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  z-index: 10;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .legal-page-sidebar {
+    width: 300px;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 2rem;
+  }
+}
+
+.legal-page-logo {
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .legal-page-logo {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.legal-page-logo h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #111827;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .legal-page-logo h1 {
+    font-size: 1.8rem;
+  }
+}
+
+.legal-page-tagline {
+  position: relative;
+  top: -0.35rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .legal-page-tagline {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+}
+
+.legal-page-nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .legal-page-nav {
+    padding-bottom: 0;
+  }
+}
+
+.legal-page-nav h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+  position: relative;
+  display: inline-block;
+}
+
+@media (min-width: 768px) {
+  .legal-page-nav h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.legal-page-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.legal-page-nav li {
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 0.5rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  margin-bottom: 0.15rem;
+}
+
+@media (min-width: 768px) {
+  .legal-page-nav li {
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .legal-page-nav li:hover {
+    color: #00b8d4;
+    padding-left: 0.75rem;
+  }
+}
+
+.legal-page-nav li.active {
+  color: #00b8d4;
+  font-weight: 600;
+  padding-left: 0.75rem;
+  background-color: #e0f7fa;
+}
+
+@media (min-width: 768px) {
+  .legal-page-nav li.active {
+    background-color: transparent;
+  }
+}
+
+.legal-page-nav li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0);
+  width: 3px;
+  height: 0;
+  background-color: #00b8d4;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .legal-page-nav li::before {
+    width: 4px;
+  }
+}
+
+.legal-page-nav li:hover::before,
+.legal-page-nav li.active::before {
+  height: 70%;
+  transform: translateY(-50%) scaleX(1);
+}
+
+.legal-page-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .legal-page-footer {
+    position: static;
+    margin-top: 1.5rem;
+    text-align: left;
+    padding: 0;
+    border-top: none;
+  }
+}
+
+.back-link {
+  color: #00b5de;
+  text-decoration: none;
+  font-size: 0.8rem;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .back-link {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+  .back-link:hover {
+    color: #007f9b;
+  }
+}
+
+/* Content styles */
+.legal-page-content {
+  flex: 1;
+  color: #fff;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  height: 75vh;
+}
+
+@media (min-width: 768px) {
+  .legal-page-content {
+    background-image: linear-gradient(135deg, #007f9b, #00b5de);
+    padding: 3rem;
+    height: auto;
+  }
+}
+
+.legal-page-header {
+  margin-bottom: 0.75rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@media (min-width: 768px) {
+  .legal-page-header {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.legal-page-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+@media (min-width: 768px) {
+  .legal-page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.legal-page-header p {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .legal-page-header p {
+    font-size: 0.9rem;
+  }
+}
+
+.legal-page-section {
+  background-color: #fff;
+  color: #333;
+  padding: 1rem;
+  border-radius: 10px;
+  flex: 1;
+  transition: all 0.3s ease;
+  animation: slideUp 0.5s ease-out;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  width: 100%;
+  margin: 0 auto;
+  /* Remove overflow-y: auto to eliminate scrollbar */
+}
+
+@media (min-width: 768px) {
+  .legal-page-section {
+    padding: 2rem;
+    width: 90%;
+    overflow-y: auto; /* Keep scrollbar on desktop */
+  }
+  .legal-page-section:active {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.legal-page-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #00b8d4;
+  position: relative;
+  display: inline-block;
+}
+
+@media (min-width: 768px) {
+  .legal-page-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .legal-page-section h2::after {
+    width: 50px;
+    height: 3px;
+    bottom: -8px;
+  }
+}
+
+.legal-page-section p {
+  line-height: 1.5;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .legal-page-section p {
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+}
+
+.legal-page-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  animation: fadeIn 0.5s ease-out 0.2s both;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .legal-page-navigation {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+}
+
+.nav-button {
+  background-color: white;
+  color: #00b8d4;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  min-width: 70px;
+}
+
+@media (min-width: 768px) {
+  .nav-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+  .nav-button:hover:not(:disabled) {
+    background-color: #f8f8f8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.section-indicator {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  background-color: #00b5de;
+  padding: 0.2rem 0.4rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .section-indicator {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.75rem;
+  }
+}
+
+.legal-page-powered {
+  margin-top: 0.5rem;
+  text-align: right;
+  font-size: 0.5rem;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  width: fit-content;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .legal-page-powered {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.7;
+  }
+}
+
+.legal-page-powered:hover {
+  opacity: 1;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transitions for section changes */
+.legal-page-section {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 767px) {
+  /* Compact the navigation for mobile */
+  .legal-page-nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.25rem;
+  }
+
+  .legal-page-header h1 {
+    display: none;
+  }
+
+  .legal-page-header p {
+    margin-top: -1rem;
+  }
+
+  /* Ensure the content area takes exactly the remaining space */
+  .legal-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Make sure the navigation doesn't take too much space */
+  .legal-page-nav {
+    max-height: 80px;
+    position: relative;
+    padding-bottom: 0.5rem;
+    top: -5px;
+  }
+
+  /* Adjust content area to ensure buttons fit with 20-30px space */
+  .legal-page-content {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Make the content area scrollable instead of the section */
+  .legal-page-content {
+    overflow-y: auto;
+  }
+
+  .legal-page-section {
+    overflow: visible;
+    max-height: none;
+    background-color: #00b5dea1;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+
+  .legal-page-section:hover {
+    background-color: #00b5de;
+    transform: translateY(-5px);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.308);
+  }
+
+  .legal-page-section p {
+    color: #fff;
+  }
+  .legal-page-section h2 {
+    color: #ffffff;
+  }
+  .legal-page-header p {
+    color: #333;
+  }
+}

@@ -9,6 +9,8 @@ import LoginLeft from "./Components/loginLeft";
 import LoginRight from "./Components/loginRight";
 import Bubbles from "./Components/bubbles";
 import Home from "./Components/Home";
+import PrivacyPolicy from "./Components/privacyPolicy";
+import TermsOfService from "./Components/termsOfServices";
 import { useAuth } from "./Contexts/auth";
 
 const LoginPage = () => {
@@ -44,6 +46,8 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
+        <Route path="/termsOfServices" element={<TermsOfService />} />
       </Routes>
     </Router>
   );

@@ -118,7 +118,7 @@ app.post("/api/send-email", async (req, res) => {
                         <h1 style="color: #2c3e50; text-align: center;">Password Reset Verification</h1>
                         <div style="background-color: #f8f9fa; border-radius: 5px; padding: 20px; margin: 20px 0;">
                             <p style="font-size: 16px;">Your verification code is:</p>
-                            <h2 style="text-align: center; color: #007bff; letter-spacing: 5px; font-size: 32px;">${code}</h2>
+                            <h2 style="text-align: center; color: #00b5de; letter-spacing: 5px; font-size: 32px;">${code}</h2>
                             <p style="color: #6c757d; font-size: 14px;">This code will expire in 10 minutes.</p>
                         </div>
                         <p style="color: #6c757d; font-size: 12px; text-align: center;">
@@ -129,7 +129,7 @@ app.post("/api/send-email", async (req, res) => {
             </html>`;
 
     sendSmtpEmail.sender = {
-      name: process.env.SENDER_NAME || "SupNum",
+      name: process.env.SENDER_NAME || "WhileTrueDev",
       email: process.env.SENDER_EMAIL,
     };
 
@@ -142,7 +142,7 @@ app.post("/api/send-email", async (req, res) => {
 
     sendSmtpEmail.replyTo = {
       email: process.env.SENDER_EMAIL,
-      name: process.env.SENDER_NAME || "SupNum Support",
+      name: process.env.SENDER_NAME || "WhileTrueDev Support",
     };
 
     const data = await apiInstance.sendTransacEmail(sendSmtpEmail);

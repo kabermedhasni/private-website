@@ -72,7 +72,7 @@ const PasswordReset = ({ onBackToLogin }: PasswordResetProps) => {
       setError("");
       setCurrentStep(2);
     } catch (error) {
-      setError("Failed to send verification code. Please try again.");
+      setError("This email is not registered. Please enter a valid email.");
       setSuccess("");
     } finally {
       setIsSubmitting(false);
