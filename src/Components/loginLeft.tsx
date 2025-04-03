@@ -171,10 +171,7 @@ const LoginLeft = () => {
           <div className="form-group">
             <label htmlFor="contact">
               Don't have an account ? Contact :
-              <a
-                href="https://wa.me/36133585"
-                target="_blank"
-              >
+              <a href="https://wa.me/36133585" target="_blank">
                 <svg
                   fill="#00b5de"
                   width="800px"

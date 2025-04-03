@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom"
-import { useState } from "react"
-import "./termsPrivacy.css"
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import "./termsPrivacy.css";
 
 const TermsOfService: React.FC = () => {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState<number>(0)
+  const [activeSection, setActiveSection] = useState<number>(0);
 
   const sections = [
     {
@@ -57,7 +57,7 @@ const TermsOfService: React.FC = () => {
       content:
         "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect.",
     },
-  ]
+  ];
 
   return (
     <div className="legal-page-container">
@@ -91,7 +91,7 @@ const TermsOfService: React.FC = () => {
           <h1>Terms of Service</h1>
           <p>Last Updated: March 30, 2025</p>
         </div>
-        <div className="legal-page-section" >
+        <div className="legal-page-section">
           <h2>{sections[activeSection].title}</h2>
           <p>{sections[activeSection].content}</p>
         </div>
@@ -109,7 +109,11 @@ const TermsOfService: React.FC = () => {
           <button
             className="nav-button"
             disabled={activeSection === sections.length - 1}
-            onClick={() => setActiveSection((prev) => Math.min(sections.length - 1, prev + 1))}
+            onClick={() =>
+              setActiveSection((prev) =>
+                Math.min(sections.length - 1, prev + 1)
+              )
+            }
           >
             Next
           </button>
@@ -119,8 +123,7 @@ const TermsOfService: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TermsOfService
-
+export default TermsOfService;

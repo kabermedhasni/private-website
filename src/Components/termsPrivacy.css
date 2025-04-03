@@ -16,18 +16,6 @@
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  animation: fadeInFromTop 0.5s ease-out;
-}
-
-@keyframes fadeInFromTop {
-  from {
-    opacity: 0;
-    transform: translateY(-20px) translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) translateX(0);
-  }
 }
 
 /* Responsive layout for larger screens */
