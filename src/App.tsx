@@ -16,7 +16,7 @@ import { useAuth } from "./Contexts/auth";
 const LoginPage = () => {
   return (
     <div className="login-container">
-      <Bubbles />
+      {/* <Bubbles /> */}
       <LoginLeft />
       <LoginRight />
     </div>
